@@ -37,10 +37,7 @@ Soup = bs4.BeautifulSoup(Html, 'lxml')
 
 # Gesamtanzahl der Einträge
 NoOfEntries = Soup.findAll(class_="bapf-accessible-table-filter-ergebnisse")
-NoOfEntries = NoOfEntries[0]
-NoOfEntries = NoOfEntries.contents
-NoOfEntries = NoOfEntries[0]
-NoOfEntries = replace(NoOfEntries, substitutions)
-NoOfEntries = NoOfEntries.strip()
+NoOfEntries = NoOfEntries[0].string
+NoOfEntries = replace(NoOfEntries, substitutions).strip()
 
 noOfPages = int(math.ceil(int(NoOfEntries) / 30))
